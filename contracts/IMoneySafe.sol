@@ -15,6 +15,13 @@ interface IMoneySafe {
     event FundDeposit(address indexed _addr, uint256 _amt);
 
     /**
+     * @dev emit when fund is withdrawn
+     * @param _addr address of the account
+     * @param _amt amount withdrawn
+     */
+    event Withdraw(address indexed _addr, uint256 _amt);
+
+    /**
      * @dev emit when new account is registered
      * @param _addr address of the account
      */
@@ -98,6 +105,14 @@ interface IMoneySafe {
      * Note: revert if 0 days provided
      */
     function increaseDuration(uint256 _days) external;
+
+    /**
+     * @dev withdraw saved funds
+     * @dev can only work if the duration has elapsed else revert
+     * @param _amount amount to withdraw
+     * Note: emit Withdraw event on successful withdrawal
+     */
+    function withdraw(uint256 _amount) external;
 
     /// @dev this struct holds details of the savings [the owner's safe]
     struct Account {
