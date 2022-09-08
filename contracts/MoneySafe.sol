@@ -62,24 +62,16 @@ contract MoneySafe is IMoneySafe {
      * @notice register an account
      * @param _days duration in days
      */
-    function register(uint256 _days) public payable notZeroAmount valueAllowed(_days) {
+    function register(uint256 _days) public valueAllowed(_days) {
 
         uint256 t = block.timestamp;
 
         // add account to _accounts
         _accounts[msg.sender] = Account({
-            balance: msg.value,
+            balance: 0,
             duration: _days,
             timeRegistered: t
         });
-
-        // save first deposit to deposits history
-        _depositHistory[msg.sender].push(
-            DepositDetail({
-                amount: msg.value,
-                timeDeposited: t
-            })
-        );
 
         emit AccountRegistration(msg.sender); // event event
     }
