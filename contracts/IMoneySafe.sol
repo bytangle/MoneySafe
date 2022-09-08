@@ -35,13 +35,6 @@ interface IMoneySafe {
     event DurationIncrease(uint256 _increase, uint256 _total);
 
     /**
-     * @dev used with revert in the case of unauthorized activity
-     * @param _addr address that initiated the action
-     * @param _msg message describing the attempted action
-     */
-    error Unauthorized(address _addr, string  _msg);
-
-    /**
      * @dev used with revert when zero is provided for amounts and days
      * @param _msg friendly message
      */
@@ -51,9 +44,8 @@ interface IMoneySafe {
      * @dev used with revert when an owner wants to withdraw before the duration elapse
      * @param _duration the period of saving
      * @param _timeLeft the time left before it elapse
-     * @param _msg friendly message
      */
-    error PrematureWithdrawal(uint256 _duration, uint256 _timeLeft, string _msg);
+    error PrematureWithdrawal(uint256 _duration, uint256 _timeLeft);
 
     /**
      * @dev used with revert when account already exists
@@ -63,6 +55,11 @@ interface IMoneySafe {
 
     /// @dev used with revert when trying to save without first registering
     error NotYetRegistered();
+
+    /// @dev use with revert when trying to withdraw amount from balance
+    /// @param _balance the actual account remaining
+    /// @param _amountRequested the amount requested to be withdrawn
+    error InsufficientFunds(uint256 _balance, uint256 _amountRequested);
 
     /**
      * @dev register self and deposit first amount
@@ -116,11 +113,9 @@ interface IMoneySafe {
 
     /// @dev this struct holds details of the savings [the owner's safe]
     struct Account {
-        address owner; // address of account owner
         uint256 balance; // in the MoneySafe token
         uint256 duration; // duration in days
         uint256 timeRegistered; // timestamp in milliseconds
-        //DepositDetail[] depositDetails;
     }
 
     /**
