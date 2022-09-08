@@ -40,7 +40,7 @@ contract MoneySafe is IMoneySafe {
         Account memory acct = _accounts[msg.sender]; // retrieve account details
 
         // ensure msg.sender doesn't own an account yet
-        if(acct.balance > 0) revert AlreadyRegistered(acct.timeRegistered);
+        if(acct.timeRegistered > 0) revert AlreadyRegistered(acct.timeRegistered);
 
         _; // continue execution
     }
@@ -49,7 +49,7 @@ contract MoneySafe is IMoneySafe {
         Account memory acct = _accounts[msg.sender]; // retrieve account details
 
         // ensure msg.sender doesn't own an account yet
-        if(acct.balance == 0) revert NotYetRegistered();
+        if(acct.timeRegistered == 0) revert NotYetRegistered();
 
         _; // continue execution
     }

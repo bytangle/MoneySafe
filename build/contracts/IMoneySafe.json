@@ -140,7 +140,7 @@
       ],
       "name": "register",
       "outputs": [],
-      "stateMutability": "payable",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -241,7 +241,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_timeRegistered\",\"type\":\"uint256\"}],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_balance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_amountRequested\",\"type\":\"uint256\"}],\"name\":\"InsufficientFunds\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotYetRegistered\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_duration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timeLeft\",\"type\":\"uint256\"}],\"name\":\"PrematureWithdrawal\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_msg\",\"type\":\"string\"}],\"name\":\"ZeroException\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"}],\"name\":\"AccountRegistration\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_increase\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_total\",\"type\":\"uint256\"}],\"name\":\"DurationIncrease\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_amt\",\"type\":\"uint256\"}],\"name\":\"FundDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_amt\",\"type\":\"uint256\"}],\"name\":\"Withdraw\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"balance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDepositsDetails\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"timeDeposited\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"struct IMoneySafe.DepositDetail[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_days\",\"type\":\"uint256\"}],\"name\":\"increaseDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_days\",\"type\":\"uint256\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"save\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"timeLeft\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"timeRegistered\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Edicha Joshua <mredichaj@gmail.com>\",\"errors\":{\"AlreadyRegistered(uint256)\":[{\"details\":\"used with revert when account already exists\",\"params\":{\"_timeRegistered\":\"the time account was registered\"}}],\"InsufficientFunds(uint256,uint256)\":[{\"details\":\"use with revert when trying to withdraw amount from balance\",\"params\":{\"_amountRequested\":\"the amount requested to be withdrawn\",\"_balance\":\"the actual account remaining\"}}],\"NotYetRegistered()\":[{\"details\":\"used with revert when trying to save without first registering\"}],\"PrematureWithdrawal(uint256,uint256)\":[{\"details\":\"used with revert when an owner wants to withdraw before the duration elapse\",\"params\":{\"_duration\":\"the period of saving\",\"_timeLeft\":\"the time left before it elapse\"}}],\"ZeroException(string)\":[{\"details\":\"used with revert when zero is provided for amounts and days\",\"params\":{\"_msg\":\"friendly message\"}}]},\"events\":{\"AccountRegistration(address)\":{\"details\":\"emit when new account is registered\",\"params\":{\"_addr\":\"address of the account\"}},\"DurationIncrease(uint256,uint256)\":{\"details\":\"emit when duration is increased\",\"params\":{\"_increase\":\"the number of days added\",\"_total\":\"new duration\"}},\"FundDeposit(address,uint256)\":{\"details\":\"emit when fund is saved by an account\",\"params\":{\"_addr\":\"address of the account\",\"_amt\":\"amount saved\"}},\"Withdraw(address,uint256)\":{\"details\":\"emit when fund is withdrawn\",\"params\":{\"_addr\":\"address of the account\",\"_amt\":\"amount withdrawn\"}}},\"kind\":\"dev\",\"methods\":{\"balance()\":{\"details\":\"get total funds saved\",\"returns\":{\"_0\":\"total funds saved\"}},\"getDepositsDetails()\":{\"details\":\"retrive deposit details\",\"returns\":{\"_0\":\"array of the deposit details\"}},\"increaseDuration(uint256)\":{\"details\":\"increase duration\",\"params\":{\"_days\":\"total number of days to be added Note: revert if 0 days provided\"}},\"register(uint256)\":{\"details\":\"register self and deposit first amount\",\"params\":{\"_days\":\"duration in days Note: should emit {AccountRegistration} event\"}},\"save()\":{\"details\":\"save new amount Note should save deposit details and emit {FundDeposit} event\"},\"timeLeft()\":{\"details\":\"get the time left before the owner can start withdrawing saved funds\",\"returns\":{\"_0\":\"the time left in milliseconds\"}},\"timeRegistered()\":{\"details\":\"get the registration detail\",\"returns\":{\"_0\":\"the time registered in milliseconds\"}},\"withdraw(uint256)\":{\"details\":\"withdraw saved fundscan only work if the duration has elapsed else revert\",\"params\":{\"_amount\":\"amount to withdraw Note: emit Withdraw event on successful withdrawal\"}}},\"title\":\"MoneySafe interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IMoneySafe.sol\":\"IMoneySafe\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IMoneySafe.sol\":{\"keccak256\":\"0x4142dd20cfdbb32549f5304feaf0cbf4acafc0250f4fd296103692d0ae568e0c\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://d7af96ee3d8b20223050f28b4f92c14822ddd1541be5bf9f0731c7ecbbf91a1b\",\"dweb:/ipfs/Qmaywz4oVFognbkxEyHq3mRTmerCu171ed7KKmnANcYriB\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_timeRegistered\",\"type\":\"uint256\"}],\"name\":\"AlreadyRegistered\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_balance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_amountRequested\",\"type\":\"uint256\"}],\"name\":\"InsufficientFunds\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotYetRegistered\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_duration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_timeLeft\",\"type\":\"uint256\"}],\"name\":\"PrematureWithdrawal\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_msg\",\"type\":\"string\"}],\"name\":\"ZeroException\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"}],\"name\":\"AccountRegistration\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_increase\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_total\",\"type\":\"uint256\"}],\"name\":\"DurationIncrease\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_amt\",\"type\":\"uint256\"}],\"name\":\"FundDeposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_amt\",\"type\":\"uint256\"}],\"name\":\"Withdraw\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"balance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDepositsDetails\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"timeDeposited\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"internalType\":\"struct IMoneySafe.DepositDetail[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_days\",\"type\":\"uint256\"}],\"name\":\"increaseDuration\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_days\",\"type\":\"uint256\"}],\"name\":\"register\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"save\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"timeLeft\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"timeRegistered\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Edicha Joshua <mredichaj@gmail.com>\",\"errors\":{\"AlreadyRegistered(uint256)\":[{\"details\":\"used with revert when account already exists\",\"params\":{\"_timeRegistered\":\"the time account was registered\"}}],\"InsufficientFunds(uint256,uint256)\":[{\"details\":\"use with revert when trying to withdraw amount from balance\",\"params\":{\"_amountRequested\":\"the amount requested to be withdrawn\",\"_balance\":\"the actual account remaining\"}}],\"NotYetRegistered()\":[{\"details\":\"used with revert when trying to save without first registering\"}],\"PrematureWithdrawal(uint256,uint256)\":[{\"details\":\"used with revert when an owner wants to withdraw before the duration elapse\",\"params\":{\"_duration\":\"the period of saving\",\"_timeLeft\":\"the time left before it elapse\"}}],\"ZeroException(string)\":[{\"details\":\"used with revert when zero is provided for amounts and days\",\"params\":{\"_msg\":\"friendly message\"}}]},\"events\":{\"AccountRegistration(address)\":{\"details\":\"emit when new account is registered\",\"params\":{\"_addr\":\"address of the account\"}},\"DurationIncrease(uint256,uint256)\":{\"details\":\"emit when duration is increased\",\"params\":{\"_increase\":\"the number of days added\",\"_total\":\"new duration\"}},\"FundDeposit(address,uint256)\":{\"details\":\"emit when fund is saved by an account\",\"params\":{\"_addr\":\"address of the account\",\"_amt\":\"amount saved\"}},\"Withdraw(address,uint256)\":{\"details\":\"emit when fund is withdrawn\",\"params\":{\"_addr\":\"address of the account\",\"_amt\":\"amount withdrawn\"}}},\"kind\":\"dev\",\"methods\":{\"balance()\":{\"details\":\"get total funds saved\",\"returns\":{\"_0\":\"total funds saved\"}},\"getDepositsDetails()\":{\"details\":\"retrive deposit details\",\"returns\":{\"_0\":\"array of the deposit details\"}},\"increaseDuration(uint256)\":{\"details\":\"increase duration\",\"params\":{\"_days\":\"total number of days to be added Note: revert if 0 days provided\"}},\"register(uint256)\":{\"details\":\"register self and deposit first amount\",\"params\":{\"_days\":\"duration in days Note: should emit {AccountRegistration} event\"}},\"save()\":{\"details\":\"save new amount Note should save deposit details and emit {FundDeposit} event\"},\"timeLeft()\":{\"details\":\"get the time left before the owner can start withdrawing saved funds\",\"returns\":{\"_0\":\"the time left in milliseconds\"}},\"timeRegistered()\":{\"details\":\"get the registration detail\",\"returns\":{\"_0\":\"the time registered in milliseconds\"}},\"withdraw(uint256)\":{\"details\":\"withdraw saved fundscan only work if the duration has elapsed else revert\",\"params\":{\"_amount\":\"amount to withdraw Note: emit Withdraw event on successful withdrawal\"}}},\"title\":\"MoneySafe interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IMoneySafe.sol\":\"IMoneySafe\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IMoneySafe.sol\":{\"keccak256\":\"0x2703d5f037a678cdd3413eb77d980cf11478c86d7a71c253321eca52d921a17b\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://843d436e8f44f154e303715847aecff3ef2871576315a02eedad43d33c165de7\",\"dweb:/ipfs/QmPH93ooxUpDRYLtLPqMVhAEc5LZt5Ltpzy6LAwKXeYdN7\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -249,7 +249,7 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity ^0.8.16;\n\n/**\n * @title MoneySafe interface\n * @author Edicha Joshua <mredichaj@gmail.com>\n */\ninterface IMoneySafe {\n    /**\n     * @dev emit when fund is saved by an account\n     * @param _addr address of the account\n     * @param _amt amount saved\n     */\n    event FundDeposit(address indexed _addr, uint256 _amt);\n\n    /**\n     * @dev emit when fund is withdrawn\n     * @param _addr address of the account\n     * @param _amt amount withdrawn\n     */\n    event Withdraw(address indexed _addr, uint256 _amt);\n\n    /**\n     * @dev emit when new account is registered\n     * @param _addr address of the account\n     */\n    event AccountRegistration(address indexed _addr);\n\n    /**\n     * @dev emit when duration is increased\n     * @param _increase the number of days added\n     * @param _total new duration\n     */\n    event DurationIncrease(uint256 _increase, uint256 _total);\n\n    /**\n     * @dev used with revert when zero is provided for amounts and days\n     * @param _msg friendly message\n     */\n    error ZeroException(string _msg);\n\n    /**\n     * @dev used with revert when an owner wants to withdraw before the duration elapse\n     * @param _duration the period of saving\n     * @param _timeLeft the time left before it elapse\n     */\n    error PrematureWithdrawal(uint256 _duration, uint256 _timeLeft);\n\n    /**\n     * @dev used with revert when account already exists\n     * @param _timeRegistered the time account was registered\n     */\n    error AlreadyRegistered(uint256 _timeRegistered);\n\n    /// @dev used with revert when trying to save without first registering\n    error NotYetRegistered();\n\n    /// @dev use with revert when trying to withdraw amount from balance\n    /// @param _balance the actual account remaining\n    /// @param _amountRequested the amount requested to be withdrawn\n    error InsufficientFunds(uint256 _balance, uint256 _amountRequested);\n\n    /**\n     * @dev register self and deposit first amount\n     * @param _days duration in days\n     * Note: should emit {AccountRegistration} event\n     */\n    function register(uint256 _days) external payable;\n\n    /// @dev save new amount\n    /// Note should save deposit details and emit {FundDeposit} event\n    function save() external payable;\n\n    /**\n     * @dev retrive deposit details\n     * @return array of the deposit details\n     */\n    function getDepositsDetails() external view returns (DepositDetail[] memory);\n\n    /**\n     * @dev get the time left before the owner can start withdrawing saved funds\n     * @return the time left in milliseconds\n     */\n    function timeLeft() external view returns (uint256);\n\n    /**\n     * @dev get total funds saved\n     * @return total funds saved\n     */\n    function balance() external view returns (uint256);\n\n    /**\n     * @dev get the registration detail\n     * @return the time registered in milliseconds\n     */\n    function timeRegistered() external view returns (uint256);\n\n    /**\n     * @dev increase duration\n     * @param _days total number of days to be added\n     * Note: revert if 0 days provided\n     */\n    function increaseDuration(uint256 _days) external;\n\n    /**\n     * @dev withdraw saved funds\n     * @dev can only work if the duration has elapsed else revert\n     * @param _amount amount to withdraw\n     * Note: emit Withdraw event on successful withdrawal\n     */\n    function withdraw(uint256 _amount) external;\n\n    /// @dev this struct holds details of the savings [the owner's safe]\n    struct Account {\n        uint256 balance; // in the MoneySafe token\n        uint256 duration; // duration in days\n        uint256 timeRegistered; // timestamp in milliseconds\n    }\n\n    /**\n     * @dev this struct holds the details of inidividual deposits\n     */\n    struct DepositDetail {\n        uint256 timeDeposited; // timestamp in milliseconds\n        uint256 amount; // amount in MoneySafe token\n    }\n}",
+  "source": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity ^0.8.16;\n\n/**\n * @title MoneySafe interface\n * @author Edicha Joshua <mredichaj@gmail.com>\n */\ninterface IMoneySafe {\n    /**\n     * @dev emit when fund is saved by an account\n     * @param _addr address of the account\n     * @param _amt amount saved\n     */\n    event FundDeposit(address indexed _addr, uint256 _amt);\n\n    /**\n     * @dev emit when fund is withdrawn\n     * @param _addr address of the account\n     * @param _amt amount withdrawn\n     */\n    event Withdraw(address indexed _addr, uint256 _amt);\n\n    /**\n     * @dev emit when new account is registered\n     * @param _addr address of the account\n     */\n    event AccountRegistration(address indexed _addr);\n\n    /**\n     * @dev emit when duration is increased\n     * @param _increase the number of days added\n     * @param _total new duration\n     */\n    event DurationIncrease(uint256 _increase, uint256 _total);\n\n    /**\n     * @dev used with revert when zero is provided for amounts and days\n     * @param _msg friendly message\n     */\n    error ZeroException(string _msg);\n\n    /**\n     * @dev used with revert when an owner wants to withdraw before the duration elapse\n     * @param _duration the period of saving\n     * @param _timeLeft the time left before it elapse\n     */\n    error PrematureWithdrawal(uint256 _duration, uint256 _timeLeft);\n\n    /**\n     * @dev used with revert when account already exists\n     * @param _timeRegistered the time account was registered\n     */\n    error AlreadyRegistered(uint256 _timeRegistered);\n\n    /// @dev used with revert when trying to save without first registering\n    error NotYetRegistered();\n\n    /// @dev use with revert when trying to withdraw amount from balance\n    /// @param _balance the actual account remaining\n    /// @param _amountRequested the amount requested to be withdrawn\n    error InsufficientFunds(uint256 _balance, uint256 _amountRequested);\n\n    /**\n     * @dev register self and deposit first amount\n     * @param _days duration in days\n     * Note: should emit {AccountRegistration} event\n     */\n    function register(uint256 _days) external;\n\n    /// @dev save new amount\n    /// Note should save deposit details and emit {FundDeposit} event\n    function save() external payable;\n\n    /**\n     * @dev retrive deposit details\n     * @return array of the deposit details\n     */\n    function getDepositsDetails() external view returns (DepositDetail[] memory);\n\n    /**\n     * @dev get the time left before the owner can start withdrawing saved funds\n     * @return the time left in milliseconds\n     */\n    function timeLeft() external view returns (uint256);\n\n    /**\n     * @dev get total funds saved\n     * @return total funds saved\n     */\n    function balance() external view returns (uint256);\n\n    /**\n     * @dev get the registration detail\n     * @return the time registered in milliseconds\n     */\n    function timeRegistered() external view returns (uint256);\n\n    /**\n     * @dev increase duration\n     * @param _days total number of days to be added\n     * Note: revert if 0 days provided\n     */\n    function increaseDuration(uint256 _days) external;\n\n    /**\n     * @dev withdraw saved funds\n     * @dev can only work if the duration has elapsed else revert\n     * @param _amount amount to withdraw\n     * Note: emit Withdraw event on successful withdrawal\n     */\n    function withdraw(uint256 _amount) external;\n\n    /// @dev this struct holds details of the savings [the owner's safe]\n    struct Account {\n        uint256 balance; // in the MoneySafe token\n        uint256 duration; // duration in days\n        uint256 timeRegistered; // timestamp in milliseconds\n    }\n\n    /**\n     * @dev this struct holds the details of inidividual deposits\n     */\n    struct DepositDetail {\n        uint256 timeDeposited; // timestamp in milliseconds\n        uint256 amount; // amount in MoneySafe token\n    }\n}",
   "sourcePath": "/Users/josh/Bytangle/Practice/Web3.0 & dApps/contracts/MoneySafe.sol/contracts/IMoneySafe.sol",
   "ast": {
     "absolutePath": "project:/contracts/IMoneySafe.sol",
@@ -900,11 +900,11 @@
               "id": 60,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2148:0:0"
+              "src": "2140:0:0"
             },
             "scope": 116,
-            "src": "2099:50:0",
-            "stateMutability": "payable",
+            "src": "2099:42:0",
+            "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
@@ -912,7 +912,7 @@
             "documentation": {
               "id": 62,
               "nodeType": "StructuredDocumentation",
-              "src": "2155:94:0",
+              "src": "2147:94:0",
               "text": "@dev save new amount\n Note should save deposit details and emit {FundDeposit} event"
             },
             "functionSelector": "42dad49e",
@@ -921,22 +921,22 @@
             "kind": "function",
             "modifiers": [],
             "name": "save",
-            "nameLocation": "2263:4:0",
+            "nameLocation": "2255:4:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 63,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2267:2:0"
+              "src": "2259:2:0"
             },
             "returnParameters": {
               "id": 64,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2286:0:0"
+              "src": "2278:0:0"
             },
             "scope": 116,
-            "src": "2254:33:0",
+            "src": "2246:33:0",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
@@ -945,7 +945,7 @@
             "documentation": {
               "id": 66,
               "nodeType": "StructuredDocumentation",
-              "src": "2293:91:0",
+              "src": "2285:91:0",
               "text": " @dev retrive deposit details\n @return array of the deposit details"
             },
             "functionSelector": "a66cd471",
@@ -954,13 +954,13 @@
             "kind": "function",
             "modifiers": [],
             "name": "getDepositsDetails",
-            "nameLocation": "2398:18:0",
+            "nameLocation": "2390:18:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 67,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2416:2:0"
+              "src": "2408:2:0"
             },
             "returnParameters": {
               "id": 72,
@@ -974,7 +974,7 @@
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 73,
-                  "src": "2442:22:0",
+                  "src": "2434:22:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -989,14 +989,14 @@
                         "id": 68,
                         "name": "DepositDetail",
                         "nameLocations": [
-                          "2442:13:0"
+                          "2434:13:0"
                         ],
                         "nodeType": "IdentifierPath",
                         "referencedDeclaration": 115,
-                        "src": "2442:13:0"
+                        "src": "2434:13:0"
                       },
                       "referencedDeclaration": 115,
-                      "src": "2442:13:0",
+                      "src": "2434:13:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_DepositDetail_$115_storage_ptr",
                         "typeString": "struct IMoneySafe.DepositDetail"
@@ -1004,7 +1004,7 @@
                     },
                     "id": 70,
                     "nodeType": "ArrayTypeName",
-                    "src": "2442:15:0",
+                    "src": "2434:15:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_struct$_DepositDetail_$115_storage_$dyn_storage_ptr",
                       "typeString": "struct IMoneySafe.DepositDetail[]"
@@ -1013,10 +1013,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2441:24:0"
+              "src": "2433:24:0"
             },
             "scope": 116,
-            "src": "2389:77:0",
+            "src": "2381:77:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1025,7 +1025,7 @@
             "documentation": {
               "id": 74,
               "nodeType": "StructuredDocumentation",
-              "src": "2472:137:0",
+              "src": "2464:137:0",
               "text": " @dev get the time left before the owner can start withdrawing saved funds\n @return the time left in milliseconds"
             },
             "functionSelector": "1300a6d1",
@@ -1034,13 +1034,13 @@
             "kind": "function",
             "modifiers": [],
             "name": "timeLeft",
-            "nameLocation": "2623:8:0",
+            "nameLocation": "2615:8:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 75,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2631:2:0"
+              "src": "2623:2:0"
             },
             "returnParameters": {
               "id": 78,
@@ -1054,7 +1054,7 @@
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 79,
-                  "src": "2657:7:0",
+                  "src": "2649:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1065,7 +1065,7 @@
                     "id": 76,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2657:7:0",
+                    "src": "2649:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1074,10 +1074,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2656:9:0"
+              "src": "2648:9:0"
             },
             "scope": 116,
-            "src": "2614:52:0",
+            "src": "2606:52:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1086,7 +1086,7 @@
             "documentation": {
               "id": 80,
               "nodeType": "StructuredDocumentation",
-              "src": "2672:78:0",
+              "src": "2664:78:0",
               "text": " @dev get total funds saved\n @return total funds saved"
             },
             "functionSelector": "b69ef8a8",
@@ -1095,13 +1095,13 @@
             "kind": "function",
             "modifiers": [],
             "name": "balance",
-            "nameLocation": "2764:7:0",
+            "nameLocation": "2756:7:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 81,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2771:2:0"
+              "src": "2763:2:0"
             },
             "returnParameters": {
               "id": 84,
@@ -1115,7 +1115,7 @@
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 85,
-                  "src": "2797:7:0",
+                  "src": "2789:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1126,7 +1126,7 @@
                     "id": 82,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2797:7:0",
+                    "src": "2789:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1135,10 +1135,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2796:9:0"
+              "src": "2788:9:0"
             },
             "scope": 116,
-            "src": "2755:51:0",
+            "src": "2747:51:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1147,7 +1147,7 @@
             "documentation": {
               "id": 86,
               "nodeType": "StructuredDocumentation",
-              "src": "2812:102:0",
+              "src": "2804:102:0",
               "text": " @dev get the registration detail\n @return the time registered in milliseconds"
             },
             "functionSelector": "625d123e",
@@ -1156,13 +1156,13 @@
             "kind": "function",
             "modifiers": [],
             "name": "timeRegistered",
-            "nameLocation": "2928:14:0",
+            "nameLocation": "2920:14:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 87,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2942:2:0"
+              "src": "2934:2:0"
             },
             "returnParameters": {
               "id": 90,
@@ -1176,7 +1176,7 @@
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
                   "scope": 91,
-                  "src": "2968:7:0",
+                  "src": "2960:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1187,7 +1187,7 @@
                     "id": 88,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2968:7:0",
+                    "src": "2960:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1196,10 +1196,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2967:9:0"
+              "src": "2959:9:0"
             },
             "scope": 116,
-            "src": "2919:58:0",
+            "src": "2911:58:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1208,7 +1208,7 @@
             "documentation": {
               "id": 92,
               "nodeType": "StructuredDocumentation",
-              "src": "2983:133:0",
+              "src": "2975:133:0",
               "text": " @dev increase duration\n @param _days total number of days to be added\n Note: revert if 0 days provided"
             },
             "functionSelector": "b8eb115e",
@@ -1217,7 +1217,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "increaseDuration",
-            "nameLocation": "3130:16:0",
+            "nameLocation": "3122:16:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 95,
@@ -1228,10 +1228,10 @@
                   "id": 94,
                   "mutability": "mutable",
                   "name": "_days",
-                  "nameLocation": "3155:5:0",
+                  "nameLocation": "3147:5:0",
                   "nodeType": "VariableDeclaration",
                   "scope": 97,
-                  "src": "3147:13:0",
+                  "src": "3139:13:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1242,7 +1242,7 @@
                     "id": 93,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3147:7:0",
+                    "src": "3139:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1251,16 +1251,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3146:15:0"
+              "src": "3138:15:0"
             },
             "returnParameters": {
               "id": 96,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3170:0:0"
+              "src": "3162:0:0"
             },
             "scope": 116,
-            "src": "3121:50:0",
+            "src": "3113:50:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1269,7 +1269,7 @@
             "documentation": {
               "id": 98,
               "nodeType": "StructuredDocumentation",
-              "src": "3177:209:0",
+              "src": "3169:209:0",
               "text": " @dev withdraw saved funds\n @dev can only work if the duration has elapsed else revert\n @param _amount amount to withdraw\n Note: emit Withdraw event on successful withdrawal"
             },
             "functionSelector": "2e1a7d4d",
@@ -1278,7 +1278,7 @@
             "kind": "function",
             "modifiers": [],
             "name": "withdraw",
-            "nameLocation": "3400:8:0",
+            "nameLocation": "3392:8:0",
             "nodeType": "FunctionDefinition",
             "parameters": {
               "id": 101,
@@ -1289,10 +1289,10 @@
                   "id": 100,
                   "mutability": "mutable",
                   "name": "_amount",
-                  "nameLocation": "3417:7:0",
+                  "nameLocation": "3409:7:0",
                   "nodeType": "VariableDeclaration",
                   "scope": 103,
-                  "src": "3409:15:0",
+                  "src": "3401:15:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1303,7 +1303,7 @@
                     "id": 99,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3409:7:0",
+                    "src": "3401:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1312,16 +1312,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3408:17:0"
+              "src": "3400:17:0"
             },
             "returnParameters": {
               "id": 102,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3434:0:0"
+              "src": "3426:0:0"
             },
             "scope": 116,
-            "src": "3391:44:0",
+            "src": "3383:44:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1335,10 +1335,10 @@
                 "id": 105,
                 "mutability": "mutable",
                 "name": "balance",
-                "nameLocation": "3547:7:0",
+                "nameLocation": "3539:7:0",
                 "nodeType": "VariableDeclaration",
                 "scope": 110,
-                "src": "3539:15:0",
+                "src": "3531:15:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1349,7 +1349,7 @@
                   "id": 104,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3539:7:0",
+                  "src": "3531:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1362,10 +1362,10 @@
                 "id": 107,
                 "mutability": "mutable",
                 "name": "duration",
-                "nameLocation": "3598:8:0",
+                "nameLocation": "3590:8:0",
                 "nodeType": "VariableDeclaration",
                 "scope": 110,
-                "src": "3590:16:0",
+                "src": "3582:16:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1376,7 +1376,7 @@
                   "id": 106,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3590:7:0",
+                  "src": "3582:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1389,10 +1389,10 @@
                 "id": 109,
                 "mutability": "mutable",
                 "name": "timeRegistered",
-                "nameLocation": "3644:14:0",
+                "nameLocation": "3636:14:0",
                 "nodeType": "VariableDeclaration",
                 "scope": 110,
-                "src": "3636:22:0",
+                "src": "3628:22:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1403,7 +1403,7 @@
                   "id": 108,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3636:7:0",
+                  "src": "3628:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1413,10 +1413,10 @@
               }
             ],
             "name": "Account",
-            "nameLocation": "3521:7:0",
+            "nameLocation": "3513:7:0",
             "nodeType": "StructDefinition",
             "scope": 116,
-            "src": "3514:180:0",
+            "src": "3506:180:0",
             "visibility": "public"
           },
           {
@@ -1428,10 +1428,10 @@
                 "id": 112,
                 "mutability": "mutable",
                 "name": "timeDeposited",
-                "nameLocation": "3821:13:0",
+                "nameLocation": "3813:13:0",
                 "nodeType": "VariableDeclaration",
                 "scope": 115,
-                "src": "3813:21:0",
+                "src": "3805:21:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1442,7 +1442,7 @@
                   "id": 111,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3813:7:0",
+                  "src": "3805:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1455,10 +1455,10 @@
                 "id": 114,
                 "mutability": "mutable",
                 "name": "amount",
-                "nameLocation": "3881:6:0",
+                "nameLocation": "3873:6:0",
                 "nodeType": "VariableDeclaration",
                 "scope": 115,
-                "src": "3873:14:0",
+                "src": "3865:14:0",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1469,7 +1469,7 @@
                   "id": 113,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3873:7:0",
+                  "src": "3865:7:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1479,15 +1479,15 @@
               }
             ],
             "name": "DepositDetail",
-            "nameLocation": "3789:13:0",
+            "nameLocation": "3781:13:0",
             "nodeType": "StructDefinition",
             "scope": 116,
-            "src": "3782:141:0",
+            "src": "3774:141:0",
             "visibility": "public"
           }
         ],
         "scope": 117,
-        "src": "148:3777:0",
+        "src": "148:3769:0",
         "usedErrors": [
           33,
           40,
@@ -1497,7 +1497,7 @@
         ]
       }
     ],
-    "src": "37:3888:0"
+    "src": "37:3880:0"
   },
   "compiler": {
     "name": "solc",
@@ -1505,7 +1505,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.9",
-  "updatedAt": "2022-09-08T21:26:30.049Z",
+  "updatedAt": "2022-09-08T21:44:00.870Z",
   "devdoc": {
     "author": "Edicha Joshua <mredichaj@gmail.com>",
     "errors": {
