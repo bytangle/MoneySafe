@@ -1,0 +1,334 @@
+{
+  "contractName": "TimeUtil",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Edicha Joshua <mredichaj@gmail.com>\",\"details\":\"used with type uint256 to encapsulate conversions\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Time Util Library\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/TimeUtil.sol\":\"TimeUtil\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/TimeUtil.sol\":{\"keccak256\":\"0x2577d812071299cc6ca7ec57f02ee9c760fbbb91306f3292c381cc5f1f6c6f3d\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://a87eb2dc2cd6fcc1906fd21ceb5d54851a323636f1f6565847c7c4c3834f6e70\",\"dweb:/ipfs/QmRKRATj8fHbLy3UMfDSD1X8TpfoUUf2L9BKd5Eu7R3C4F\"]}},\"version\":1}",
+  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122006eba9fd8ac55cdbaa3ba3e12c3443eb11050c4e5d80291e09e62d2e7144b0cd64736f6c63430008100033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122006eba9fd8ac55cdbaa3ba3e12c3443eb11050c4e5d80291e09e62d2e7144b0cd64736f6c63430008100033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "206:290:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "206:290:3:-:0;;;;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\npragma solidity ^0.8.16;\n\n/**\n * @title Time Util Library\n * @author Edicha Joshua <mredichaj@gmail.com>\n * @dev used with type uint256 to encapsulate conversions\n *\n */\nlibrary TimeUtil {\n\n    /**\n     * @dev convert a number which represents day(s) to milliseconds\n     * @param _self the number to convert to millisecond\n     */\n    function toMilliSeconds(uint256 _self) internal pure returns (uint256) {\n        return _self * 24 * 60 * 60 * 1000;\n    }\n}",
+  "sourcePath": "/Users/josh/Bytangle/Practice/Web3.0 & dApps/contracts/MoneySafe.sol/contracts/TimeUtil.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/TimeUtil.sol",
+    "exportedSymbols": {
+      "TimeUtil": [
+        587
+      ]
+    },
+    "id": 588,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 566,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "36:24:3"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "TimeUtil",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": {
+          "id": 567,
+          "nodeType": "StructuredDocumentation",
+          "src": "62:143:3",
+          "text": " @title Time Util Library\n @author Edicha Joshua <mredichaj@gmail.com>\n @dev used with type uint256 to encapsulate conversions"
+        },
+        "fullyImplemented": true,
+        "id": 587,
+        "linearizedBaseContracts": [
+          587
+        ],
+        "name": "TimeUtil",
+        "nameLocation": "214:8:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 585,
+              "nodeType": "Block",
+              "src": "443:51:3",
+              "statements": [
+                {
+                  "expression": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 583,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 581,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 579,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 577,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "id": 575,
+                            "name": "_self",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 570,
+                            "src": "460:5:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "*",
+                          "rightExpression": {
+                            "hexValue": "3234",
+                            "id": 576,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "468:2:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_24_by_1",
+                              "typeString": "int_const 24"
+                            },
+                            "value": "24"
+                          },
+                          "src": "460:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "*",
+                        "rightExpression": {
+                          "hexValue": "3630",
+                          "id": 578,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "473:2:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_60_by_1",
+                            "typeString": "int_const 60"
+                          },
+                          "value": "60"
+                        },
+                        "src": "460:15:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "*",
+                      "rightExpression": {
+                        "hexValue": "3630",
+                        "id": 580,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "478:2:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_60_by_1",
+                          "typeString": "int_const 60"
+                        },
+                        "value": "60"
+                      },
+                      "src": "460:20:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "*",
+                    "rightExpression": {
+                      "hexValue": "31303030",
+                      "id": 582,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "483:4:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1000_by_1",
+                        "typeString": "int_const 1000"
+                      },
+                      "value": "1000"
+                    },
+                    "src": "460:27:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 574,
+                  "id": 584,
+                  "nodeType": "Return",
+                  "src": "453:34:3"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 568,
+              "nodeType": "StructuredDocumentation",
+              "src": "230:137:3",
+              "text": " @dev convert a number which represents day(s) to milliseconds\n @param _self the number to convert to millisecond"
+            },
+            "id": 586,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "toMilliSeconds",
+            "nameLocation": "381:14:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 571,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 570,
+                  "mutability": "mutable",
+                  "name": "_self",
+                  "nameLocation": "404:5:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 586,
+                  "src": "396:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 569,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "396:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "395:15:3"
+            },
+            "returnParameters": {
+              "id": 574,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 573,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 586,
+                  "src": "434:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 572,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "434:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "433:9:3"
+            },
+            "scope": 587,
+            "src": "372:122:3",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 588,
+        "src": "206:290:3",
+        "usedErrors": []
+      }
+    ],
+    "src": "36:460:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.16+commit.07a7930e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.9",
+  "updatedAt": "2022-09-08T21:26:30.067Z",
+  "devdoc": {
+    "author": "Edicha Joshua <mredichaj@gmail.com>",
+    "details": "used with type uint256 to encapsulate conversions",
+    "kind": "dev",
+    "methods": {},
+    "title": "Time Util Library",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
