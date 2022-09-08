@@ -46,11 +46,10 @@ interface IMoneySafe {
 
     /**
      * @dev register self and deposit first amount
-     * @param _initialDeposit first amount deposited into safe
      * @param _days duration in days
      * Note: should emit {AccountRegistration} event
      */
-    function register(uint8 _days, uint256 _initialDeposit) external payable;
+    function start(uint8 _days) external payable;
 
     /// @dev save new amount
     /// Note should save deposit details and emit {FundDeposit} event
