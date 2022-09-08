@@ -54,6 +54,9 @@ interface IMoneySafe {
      */
     error AlreadyRegistered(uint256 _timeRegistered);
 
+    /// @dev used with revert when trying to save without first registering
+    error NotYetRegistered();
+
     /**
      * @dev register self and deposit first amount
      * @param _days duration in days
