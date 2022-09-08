@@ -146,14 +146,16 @@
       "name": "register",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [],
       "name": "save",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [],
@@ -178,7 +180,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -191,7 +194,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -217,7 +221,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -230,7 +235,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -8388,9 +8394,17 @@
     "name": "solc",
     "version": "0.8.16+commit.07a7930e.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x96b92B58DBF972c98F2c6C29009b5569D8769ea4",
+      "transactionHash": "0x73b3a6d0efbd82993a96e0afe37cc227e392c36cbbb8a7b9f6d76dab95b93491"
+    }
+  },
   "schemaVersion": "3.4.9",
-  "updatedAt": "2022-09-08T21:26:30.058Z",
+  "updatedAt": "2022-09-08T21:34:03.997Z",
+  "networkType": "ethereum",
   "devdoc": {
     "author": "Edicha Joshua <mredichaj@gmail.com>",
     "errors": {

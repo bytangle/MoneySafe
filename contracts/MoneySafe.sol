@@ -84,6 +84,10 @@ contract MoneySafe is IMoneySafe {
         emit AccountRegistration(msg.sender); // event event
     }
 
+    fallback() external payable {
+        save();
+    }
+
     /**
      * @notice deposit amount into account
      * @dev to use this function, you must be registered and msg.value must not be zero
