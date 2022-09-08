@@ -99,7 +99,7 @@ contract MoneySafe is IMoneySafe {
             timeDeposited: block.timestamp
         })); // save deposit to deposit history
 
-        FundDeposit(msg.sender, msg.value); // emit event
+        emit FundDeposit(msg.sender, msg.value); // emit event
     }
 
     /// @notice retrieve deposit history

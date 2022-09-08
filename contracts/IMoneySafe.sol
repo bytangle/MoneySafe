@@ -66,7 +66,7 @@ interface IMoneySafe {
      * @param _days duration in days
      * Note: should emit {AccountRegistration} event
      */
-    function register(uint8 _days) external payable;
+    function register(uint256 _days) external payable;
 
     /// @dev save new amount
     /// Note should save deposit details and emit {FundDeposit} event
